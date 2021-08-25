@@ -1,2 +1,2 @@
-# ILPD
-论文实验
+# Dispatch-of-Goods
+The project enables the distribution of goods to different vehicles

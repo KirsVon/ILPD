@@ -1,0 +1,12 @@
+requests~=2.25.1
+pulp
+Flask~=1.1.2
+Flask-RESTful
+Flask_APScheduler
+flask-sqlalchemy
+DBUtils 2.0
+numpy~=1.20.1
+pandas~=1.2.3
+redis
+pymysql~=1.0.2
+gym~=0.18.0
