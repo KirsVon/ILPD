@@ -1,0 +1,122 @@
+[
+  {
+            "car_mark": "鲁LE3919",
+            "commodity": "螺纹",
+            "trans_group_name": "德利",
+            "weight": "130.284",
+            "city": "日照市",
+            "end_point": "东港区",
+            "mark": "-",
+            "create_time": "20190705050002"
+        },
+        {
+            "car_mark": "鲁L19155",
+            "commodity": "螺纹",
+            "trans_group_name": "德利",
+            "weight": "130.284",
+            "city": "日照市",
+            "end_point": "东港区",
+            "mark": "-",
+            "create_time": "20190705050302"
+        },
+        {
+            "car_mark": "鲁Q95570",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705050901"
+        },
+        {
+            "car_mark": "鲁Q978BZ",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705050901"
+        },
+        {
+            "car_mark": "鲁Q3M914",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051201"
+        },
+        {
+            "car_mark": "鲁Q351DY",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051201"
+        },
+        {
+            "car_mark": "鲁Q0398N",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051201"
+        },
+        {
+            "car_mark": "鲁Q3M515",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051201"
+        },
+        {
+            "car_mark": "鲁Q825CP",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051202"
+        },
+        {
+            "car_mark": "鲁Q713BM",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051502"
+        },
+        {
+            "car_mark": "鲁Q4425A",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051502"
+        },
+        {
+            "car_mark": "鲁Q4328A",
+            "commodity": "黑卷",
+            "trans_group_name": "西门",
+            "weight": "29.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190705051502"
+        }
+]

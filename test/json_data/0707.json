@@ -1,0 +1,577 @@
+[{
+	"car_mark": "鲁L55612",
+	"commodity": "螺纹",
+	"trans_group_name": "德利",
+	"weight": 130.41,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190707080306"
+}, {
+	"car_mark": "鲁Q763AD",
+	"commodity": "型钢",
+	"trans_group_name": "蒙山运输",
+	"weight": 39.6,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707082405"
+}, {
+	"car_mark": "鲁Q653CH",
+	"commodity": "螺纹",
+	"trans_group_name": "西门——云泽",
+	"weight": 33.264,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707084806"
+}, {
+	"car_mark": "鲁Q177DW",
+	"commodity": "线材",
+	"trans_group_name": "西门——云泽",
+	"weight": 33.5,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707090311"
+}, {
+	"car_mark": "鲁Q860DB",
+	"commodity": "螺纹",
+	"trans_group_name": "路祥",
+	"weight": 49.896,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707092707"
+}, {
+	"car_mark": "鲁Q5052R",
+	"commodity": "黑卷",
+	"trans_group_name": "蒙山运输",
+	"weight": 35.88,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707094805"
+}, {
+	"car_mark": "鲁Q289DJ",
+	"commodity": "线材",
+	"trans_group_name": "西门——云泽",
+	"weight": 33.5,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707100910"
+}, {
+	"car_mark": "鲁Q978BZ",
+	"commodity": "线材",
+	"trans_group_name": "西门——云泽",
+	"weight": 33.5,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707102111"
+}, {
+	"car_mark": "鲁Q3M835",
+	"commodity": "螺纹",
+	"trans_group_name": "鑫通",
+	"weight": 40.278,
+	"city": "烟台市",
+	"end_point": "招远市",
+	"mark": "-",
+	"create_time": "20190707104807"
+},  {
+	"car_mark": "鲁LB8662",
+	"commodity": "线材",
+	"trans_group_name": "德利",
+	"weight": 45.5,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190707110307"
+},{
+	"car_mark": "鲁Q4425A",
+	"commodity": "线材",
+	"trans_group_name": "西门——云泽",
+	"weight": 33.5,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707112111"
+}, {
+	"car_mark": "鲁QC3370",
+	"commodity": "型钢",
+	"trans_group_name": "路祥",
+	"weight": 42.672,
+	"city": "泰安市",
+	"end_point": "岱岳区",
+	"mark": "-",
+	"create_time": "20190707115109"
+}, {
+	"car_mark": "冀T35818",
+	"commodity": "螺纹",
+	"trans_group_name": "德利",
+	"weight": 130.41,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190707120305"
+}, {
+	"car_mark": "鲁Q059DN",
+	"commodity": "型钢",
+	"trans_group_name": "伊亿通",
+	"weight": 32.93,
+	"city": "新泰",
+	"end_point": "新泰市",
+	"mark": "-",
+	"create_time": "20190707122405"
+}, {
+	"car_mark": "鲁QM4168",
+	"commodity": "型钢",
+	"trans_group_name": "万达兴",
+	"weight": 40.656,
+	"city": "泰安市",
+	"end_point": "岱岳区",
+	"mark": "-",
+	"create_time": "20190707125707"
+}, {
+	"car_mark": "冀JX2082",
+	"commodity": "黑卷",
+	"trans_group_name": "泰兴",
+	"weight": 38.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707130906"
+}, {
+	"car_mark": "鲁Q789AT",
+	"commodity": "黑卷",
+	"trans_group_name": "西门——云泽",
+	"weight": 37.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707132406"
+}, {
+	"car_mark": "鲁QM5312",
+	"commodity": "线材",
+	"trans_group_name": "远迈",
+	"weight": 33.4,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707134808"
+}, {
+	"car_mark": "鲁Q2512D",
+	"commodity": "型钢",
+	"trans_group_name": "万达兴",
+	"weight": 40.656,
+	"city": "泰安市",
+	"end_point": "岱岳区",
+	"mark": "-",
+	"create_time": "20190707140308"
+}, {
+	"car_mark": "鲁Q5098J",
+	"commodity": "线材",
+	"trans_group_name": "蒙山运输",
+	"weight": 33.5,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707142110"
+}, {
+	"car_mark": "鲁Q087CT",
+	"commodity": "螺纹",
+	"trans_group_name": "西门——云泽",
+	"weight": 41.58,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707144804"
+}, {
+	"car_mark": "鲁PP6215",
+	"commodity": "线材",
+	"trans_group_name": "万达兴",
+	"weight": 43.0,
+	"city": "泰安市",
+	"end_point": "肥城市",
+	"mark": "-",
+	"create_time": "20190707150306"
+}, {
+	"car_mark": "鲁Q0723J",
+	"commodity": "线材",
+	"trans_group_name": "聚源",
+	"weight": 38.0,
+	"city": "潍坊市",
+	"end_point": "安丘市",
+	"mark": "-",
+	"create_time": "20190707152407"
+}, {
+	"car_mark": "鲁Q323AA",
+	"commodity": "黑卷",
+	"trans_group_name": "常建",
+	"weight": 39.905,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707155405"
+}, {
+	"car_mark": "鲁L61259",
+	"commodity": "螺纹",
+	"trans_group_name": "德利",
+	"weight": 150.57,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190707160306"
+}, {
+	"car_mark": "鲁MAT520",
+	"commodity": "黑卷",
+	"trans_group_name": "尚德",
+	"weight": 30.0,
+	"city": "滨州市",
+	"end_point": "博兴县",
+	"mark": "运输临港东库",
+	"create_time": "20190707162427"
+}, {
+	"car_mark": "鲁PL2770",
+	"commodity": "型钢",
+	"trans_group_name": "万达兴",
+	"weight": 49.536,
+	"city": "泰安市",
+	"end_point": "岱岳区",
+	"mark": "-",
+	"create_time": "20190707164805"
+}, {
+	"car_mark": "辽PB7896",
+	"commodity": "螺纹",
+	"trans_group_name": "聚源",
+	"weight": 156.492,
+	"city": "青岛市",
+	"end_point": "即墨市",
+	"mark": "-",
+	"create_time": "20190707170304"
+}, {
+	"car_mark": "鲁Q211CP",
+	"commodity": "型钢",
+	"trans_group_name": "万达兴",
+	"weight": 39.676,
+	"city": "泰安市",
+	"end_point": "岱岳区",
+	"mark": "-",
+	"create_time": "20190707172109"
+}, {
+	"car_mark": "鲁Q3M845",
+	"commodity": "黑卷",
+	"trans_group_name": "路祥",
+	"weight": 29.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707174809"
+}, {
+	"car_mark": "苏GD9561",
+	"commodity": "螺纹",
+	"trans_group_name": "安丰",
+	"weight": 142.002,
+	"city": "青岛市",
+	"end_point": "即墨市",
+	"mark": "-",
+	"create_time": "20190707180311"
+}, {
+	"car_mark": "鲁QS9756",
+	"commodity": "黑卷",
+	"trans_group_name": "路祥",
+	"weight": 29.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707182111"
+}, {
+	"car_mark": "鲁Q7307N",
+	"commodity": "黑卷",
+	"trans_group_name": "西门——云泽",
+	"weight": 29.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707184811"
+}, {
+	"car_mark": "鲁L28035",
+	"commodity": "黑卷",
+	"trans_group_name": "永顺",
+	"weight": 38.0,
+	"city": "莱芜市",
+	"end_point": "钢城区",
+	"mark": "运输临港东库",
+	"create_time": "20190707190305"
+}, {
+	"car_mark": "鲁H25K65",
+	"commodity": "黑卷",
+	"trans_group_name": "西门——宏畅",
+	"weight": 38.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707192108"
+},  {
+	"car_mark": "鲁JA5261",
+	"commodity": "线材",
+	"trans_group_name": "万达兴",
+	"weight": 40.5,
+	"city": "泰安市",
+	"end_point": "肥城市",
+	"mark": "-",
+	"create_time": "20190707194806"
+},  {
+	"car_mark": "鲁Q96302",
+	"commodity": "螺纹",
+	"trans_group_name": "德利",
+	"weight": 127.223,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190707200312"
+}, {
+	"car_mark": "鲁H83D45",
+	"commodity": "型钢",
+	"trans_group_name": "凯泰",
+	"weight": 39.6,
+	"city": "济宁市",
+	"end_point": "任城区",
+	"mark": "-",
+	"create_time": "20190707202105"
+}, {
+	"car_mark": "鲁Q1M473",
+	"commodity": "螺纹",
+	"trans_group_name": "永顺",
+	"weight": 47.124,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707205109"
+}, {
+	"car_mark": "鲁L29227",
+	"commodity": "线材",
+	"trans_group_name": "德利",
+	"weight": 45.5,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190707210307"
+}, {
+	"car_mark": "鲁L28035",
+	"commodity": "黑卷",
+	"trans_group_name": "永顺",
+	"weight": 24.0,
+	"city": "莱芜市",
+	"end_point": "钢城区",
+	"mark": "-",
+	"create_time": "20190707213007"
+}, {
+	"car_mark": "鲁L61553",
+	"commodity": "螺纹",
+	"trans_group_name": "安丰",
+	"weight": 57.96,
+	"city": "青岛市",
+	"end_point": "即墨市",
+	"mark": "-",
+	"create_time": "20190707214807"
+}, {
+	"car_mark": "鲁L27853",
+	"commodity": "白卷",
+	"trans_group_name": "永顺",
+	"weight": 55.0,
+	"city": "莱芜市",
+	"end_point": "钢城区",
+	"mark": "-",
+	"create_time": "20190707220307"
+}, {
+	"car_mark": "鲁Q4697R",
+	"commodity": "黑卷",
+	"trans_group_name": "泰兴",
+	"weight": 41.545,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707222114"
+}, {
+	"car_mark": "鲁Q035DX",
+	"commodity": "螺纹",
+	"trans_group_name": "西门——云泽",
+	"weight": 49.266,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707224809"
+}, {
+	"car_mark": "鲁L12672",
+	"commodity": "窄带",
+	"trans_group_name": "日照峰速",
+	"weight": 142.0,
+	"city": "潍坊市",
+	"end_point": "昌邑市",
+	"mark": "-",
+	"create_time": "20190707230305"
+}, {
+	"car_mark": "鲁Q837DG",
+	"commodity": "型钢",
+	"trans_group_name": "万达兴",
+	"weight": 43.74,
+	"city": "泰安市",
+	"end_point": "岱岳区",
+	"mark": "-",
+	"create_time": "20190707232108"
+}, {
+	"car_mark": "鲁Q286AY",
+	"commodity": "黑卷",
+	"trans_group_name": "蒙山运输",
+	"weight": 34.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190707234806"
+}, {
+	"car_mark": "鲁L16333",
+	"commodity": "白卷",
+	"trans_group_name": "日照峰速",
+	"weight": 148.83,
+	"city": "潍坊市",
+	"end_point": "潍城区",
+	"mark": "-",
+	"create_time": "20190708000308"
+}, {
+	"car_mark": "苏GZ6911",
+	"commodity": "螺纹",
+	"trans_group_name": "安丰",
+	"weight": 140.832,
+	"city": "青岛市",
+	"end_point": "即墨市",
+	"mark": "-",
+	"create_time": "20190708002113"
+}, {
+	"car_mark": "鲁L56201",
+	"commodity": "型钢",
+	"trans_group_name": "永顺",
+	"weight": 50.0,
+	"city": "莱芜市",
+	"end_point": "钢城区",
+	"mark": "-",
+	"create_time": "20190708005706"
+}, {
+	"car_mark": "鲁Q1731N",
+	"commodity": "型钢",
+	"trans_group_name": "聚源",
+	"weight": 48.4,
+	"city": "潍坊市",
+	"end_point": "坊子区",
+	"mark": "-",
+	"create_time": "20190708010306"
+}, {
+	"car_mark": "鲁Q391CW",
+	"commodity": "螺纹",
+	"trans_group_name": "聚源",
+	"weight": 59.984,
+	"city": "青岛市",
+	"end_point": "即墨市",
+	"mark": "-",
+	"create_time": "20190708012105"
+}, {
+	"car_mark": "鲁L56521",
+	"commodity": "型钢",
+	"trans_group_name": "聚源",
+	"weight": 57.2,
+	"city": "青岛市",
+	"end_point": "黄岛",
+	"mark": "-",
+	"create_time": "20190708024805"
+},  {
+	"car_mark": "鲁VM9768",
+	"commodity": "型钢",
+	"trans_group_name": "聚源",
+	"weight": 44.0,
+	"city": "潍坊市",
+	"end_point": "坊子区",
+	"mark": "-",
+	"create_time": "20190708030307"
+}, {
+	"car_mark": "鲁L29227",
+	"commodity": "线材",
+	"trans_group_name": "德利",
+	"weight": 45.0,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190708032109"
+}, {
+	"car_mark": "鲁L58582",
+	"commodity": "线材",
+	"trans_group_name": "德利",
+	"weight": 45.0,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190708034805"
+}, {
+	"car_mark": "鲁Q8896A",
+	"commodity": "线材",
+	"trans_group_name": "西门——云泽",
+	"weight": 33.5,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190708040905"
+}, {
+	"car_mark": "鲁11A6981",
+	"commodity": "线材",
+	"trans_group_name": "德利",
+	"weight": 45.0,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190708043904"
+}, {
+	"car_mark": "鲁L55518",
+	"commodity": "线材",
+	"trans_group_name": "德利",
+	"weight": 45.0,
+	"city": "日照市",
+	"end_point": "东港区",
+	"mark": "-",
+	"create_time": "20190708055406"
+}, {
+	"car_mark": "鲁Q3M604",
+	"commodity": "黑卷",
+	"trans_group_name": "西门——云泽",
+	"weight": 34.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190708060905"
+}, {
+	"car_mark": "鲁Q0398N",
+	"commodity": "黑卷",
+	"trans_group_name": "西门——云泽",
+	"weight": 34.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190708063008"
+}, {
+	"car_mark": "鲁Q1160B",
+	"commodity": "黑卷",
+	"trans_group_name": "蒙山运输",
+	"weight": 34.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190708070938"
+}, {
+	"car_mark": "鲁Q585FL",
+	"commodity": "黑卷",
+	"trans_group_name": "永顺",
+	"weight": 34.0,
+	"city": "临沂市",
+	"end_point": "河东区",
+	"mark": "-",
+	"create_time": "20190708072407"
+}]

@@ -1,0 +1,72 @@
+ [
+        {
+            "car_mark": "鲁Q8877J",
+            "commodity": "白卷",
+            "trans_group_name": "伊亿通",
+            "weight": "34.200",
+            "city": "泰安市",
+            "end_point": "岱岳区",
+            "mark": "-",
+            "create_time": "20190702120302"
+        },
+        {
+            "car_mark": "鲁Q200DG",
+            "commodity": "螺纹",
+            "trans_group_name": "永顺",
+            "weight": "46.032",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190702120302"
+        },
+        {
+            "car_mark": "鲁GN5013",
+            "commodity": "线材",
+            "trans_group_name": "聚源",
+            "weight": "45.000",
+            "city": "潍坊市",
+            "end_point": "安丘市",
+            "mark": "-",
+            "create_time": "20190702120602"
+        },
+        {
+            "car_mark": "鲁Q585FL",
+            "commodity": "螺纹",
+            "trans_group_name": "永顺",
+            "weight": "40.278",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190702120902"
+        },
+        {
+            "car_mark": "苏GG8357",
+            "commodity": "螺纹",
+            "trans_group_name": "安丰",
+            "weight": "138.096",
+            "city": "青岛市",
+            "end_point": "即墨市",
+            "mark": "-",
+            "create_time": "20190702121202"
+        },
+        {
+            "car_mark": "苏GK8910",
+            "commodity": "螺纹",
+            "trans_group_name": "安丰",
+            "weight": "138.096",
+            "city": "青岛市",
+            "end_point": "即墨市",
+            "mark": "-",
+            "create_time": "20190702121202"
+        },
+        {
+            "car_mark": "鲁GJ5800",
+            "commodity": "线材",
+            "trans_group_name": "聚源",
+            "weight": "45.000",
+            "city": "潍坊市",
+            "end_point": "诸城市",
+            "mark": "-",
+            "create_time": "20190702121502"
+        }
+    ]

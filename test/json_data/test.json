@@ -1,0 +1,86 @@
+﻿{
+    "data": [
+        {
+            "car_mark": "鲁K52887",
+            "commodity": "白卷",
+            "trans_group_name": "鑫通",
+            "weight": "43.000",
+            "city": "烟台市",
+            "end_point": "福山区",
+            "mark": "-",
+            "create_time": "20190702130307"
+        },{
+            "car_mark": "鲁L28383",
+            "commodity": "白卷",
+            "trans_group_name": "永顺",
+            "weight": "56.000",
+            "city": "莱芜市",
+            "end_point": "钢城区",
+            "mark": "-",
+            "create_time": "20190702192405"
+        },{
+            "car_mark": "鲁L58966",
+            "commodity": "螺纹",
+            "trans_group_name": "德利",
+            "weight": "128.736",
+            "city": "日照市",
+            "end_point": "东港区",
+            "mark": "-",
+            "create_time": "20190702082106"
+        },{
+            "car_mark": "鲁L61259",
+            "commodity": "螺纹",
+            "trans_group_name": "德利",
+            "weight": "139.392",
+            "city": "日照市",
+            "end_point": "东港区",
+            "mark": "-",
+            "create_time": "20190702210307"
+        },{
+            "car_mark": "鲁PP0527",
+            "commodity": "黑卷",
+            "trans_group_name": "万达兴",
+            "weight": "89.000",
+            "city": "济南市",
+            "end_point": "历城区",
+            "mark": "运输临港东库",
+            "create_time": "20190702162105"
+        },{
+            "car_mark": "鲁Q070BD",
+            "commodity": "白卷",
+            "trans_group_name": "德成",
+            "weight": "36.000",
+            "city": "临沂市",
+            "end_point": "河东区",
+            "mark": "-",
+            "create_time": "20190703005408"
+        },{
+            "car_mark": "鲁Q370DW",
+            "commodity": "型钢",
+            "trans_group_name": "鑫通",
+            "weight": "35.136",
+            "city": "烟台市",
+            "end_point": "蓬莱市",
+            "mark": "-",
+            "create_time": "20190702114207"
+        }, {
+            "car_mark": "鲁QM4216",
+            "commodity": "螺纹",
+            "trans_group_name": "德利",
+            "weight": "138.240",
+            "city": "日照市",
+            "end_point": "东港区",
+            "mark": "-",
+            "create_time": "20190702195107"
+        },{
+            "car_mark": "冀B2902B",
+            "commodity": "螺纹",
+            "trans_group_name": "日照峰速",
+            "weight": "39.539",
+            "city": "潍坊市",
+            "end_point": "潍城区",
+            "mark": "-",
+            "create_time": "20190702160307"
+        }
+    ]
+}
