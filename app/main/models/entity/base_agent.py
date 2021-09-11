@@ -78,4 +78,4 @@ class BaseAgent(object):
                         q_list.append(self.q_table[i][j][k][l])
         df = pd.DataFrame(columns=['Q_value'])
         df['Q_value'] = q_list
-        df.to_csv('/root/experiment/0320/0320_2/' + date + '.csv')
+        df.to_csv('/./data/FC/experiment/0908/' + date + '.csv')

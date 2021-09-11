@@ -17,9 +17,9 @@ current_time = datetime.now()
 target_time = '2021-10-01 00:00:00'
 
 while current_time < datetime.strptime(target_time, '%Y-%m-%d %H:%M:%S'):
-    time.sleep(1200)
-    snapshot_dao.select_all_snapshot(current_time)
-    print('存取数据, 当前时间为：' + current_time)
+    #time.sleep(1200)
+    snapshot_dao.select_all_snapshot(datetime.strftime(current_time, '%Y-%m-%d %H:%M:%S'))
+    print('存取数据, 当前时间为：', current_time)
     current_time += timedelta(seconds=1200)
     # if datetime.now() <= datetime.strptime(current_time, '%Y-%m-%d %H:%M:%S'):
     #     continue

@@ -7,12 +7,11 @@ import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 
-from app.main.controller.config_name_management import curr_config_class
 from app.main.entity.car import Car
 from app.main.entity.load_plan import LoadPlan
 from app.main.models.entity.base_environment import Env
 from app.main.models.packaging import packaging
-from app.tool.change_to_batch_data_by_timestamp import Raw_to_Batch
+from app.main.controller.config_name_management import curr_config_class
 
 from app.main.controller.cargo_maintain import cargo_management
 from config import config
@@ -43,7 +42,7 @@ class Environment(Env):
         df_list = []
         temp_date = self.start_date
         while temp_date < self.end_date:
-            df = pd.read_csv('/root/stock/' + temp_date[0:8] + '/' + temp_date + '.csv')
+            df = pd.read_csv(curr_config_class.STOCK_DATA_ROOT_DIRECTORY_BY_DAY + temp_date[0:8] + '/' + temp_date + '.csv')
             temp_time = datetime.strptime(temp_date, '%Y%m%d%H%M%S')
             time_diff = timedelta(seconds=1200)
             temp_time += time_diff
@@ -65,42 +64,51 @@ class Environment(Env):
         """
             Description: RQL批每向前走一步
         """
-
-        try:
-            temp_car = self.car_list[self.timestamp]
-            if str(int(temp_car.arrive_time)) >= self.cargo_date:
-                print('拉取新数据')
-                cargo_management.init_cargo_dic(self.cargo_date)
-                temp_time = datetime.strptime(self.cargo_date, '%Y%m%d%H%M%S')
-                time_diff = timedelta(seconds=1200)
-                temp_time += time_diff
-                self.cargo_date = datetime.strftime(temp_time, '%Y%m%d%H%M%S')
-            city_set = set()
-            for i in city_list:
-                city_set.add(i)
-            for i in temp_car.city_list:
-                city_set.add(i)
-            city_list = list(city_set)
-            temp_cargo_list = cargo_management.cargo_list_filter(city_list)
-            for i in range(len(temp_cargo_list)):
-                temp_cargo_list[i].get_pri(temp_car.arrive_time)
-            temp_LP_list = packaging(temp_cargo_list)
-            for i in range(len(temp_LP_list)):
-                temp_LP_list[i].update_priority()
-            self.batch.load_plan_list = temp_LP_list
-            self.batch.city_load_plan_dict = self.get_load_plan_by_city(temp_LP_list)
-            self.batch.car_list.append(temp_car)
-            self.batch.cul_can_be_sent_load_plan_by_car()
-            self.timestamp += 1
-            delta = datetime.strptime(str(int(temp_car.arrive_time)), '%Y%m%d%H%M%S') - datetime.strptime(
-                str(int(self.batch.car_list[0].arrive_time)), '%Y%m%d%H%M%S')
+        delta = None
+        mints = 0
+        temp_car = self.car_list[self.timestamp]
+        if len(self.batch.car_list) != 0:
+            delta = datetime.strptime(str(int(temp_car.arrive_time)), '%Y%m%d%H%M%S') - datetime.strptime(str(int(self.batch.car_list[0].arrive_time)), '%Y%m%d%H%M%S')
             mints = int(delta.seconds / 60) + 1
-            self.l = mints
-            self.state = (len(self.batch.car_list), len(self.batch.can_be_sent_load_plan), self.l)
-        except IndexError:
-            self.end = True
-        finally:
-            pass
+        if mints < self.lmax:
+            try:
+                if str(int(temp_car.arrive_time)) >= self.cargo_date:
+                    print('拉取新数据')
+                    cargo_management.init_cargo_dic(self.cargo_date)
+                    temp_time = datetime.strptime(self.cargo_date, '%Y%m%d%H%M%S')
+                    time_diff = timedelta(seconds=1200)
+                    temp_time += time_diff
+                    self.cargo_date = datetime.strftime(temp_time, '%Y%m%d%H%M%S')
+                city_set = set()
+                for i in city_list:
+                    city_set.add(i)
+                for i in temp_car.city_list:
+                    city_set.add(i)
+                city_list = list(city_set)
+                temp_cargo_list = cargo_management.cargo_list_filter(city_list)
+                for i in range(len(temp_cargo_list)):
+                    temp_cargo_list[i].get_pri(temp_car.arrive_time)
+                temp_LP_list = packaging(temp_cargo_list)
+                for i in range(len(temp_LP_list)):
+                    temp_LP_list[i].update_priority()
+                self.batch.load_plan_list = temp_LP_list
+                self.batch.city_load_plan_dict = self.get_load_plan_by_city(temp_LP_list)
+                self.batch.car_list.append(temp_car)
+                self.batch.cul_can_be_sent_load_plan_by_car()
+                self.timestamp += 1
+                # delta = datetime.strptime(str(int(temp_car.arrive_time)), '%Y%m%d%H%M%S') - datetime.strptime(
+                #     str(int(self.batch.car_list[0].arrive_time)), '%Y%m%d%H%M%S')
+                # mints = int(delta.seconds / 60) + 1
+                self.l = mints
+                self.state = (len(self.batch.car_list), len(self.batch.can_be_sent_load_plan), self.l)
+            except IndexError:
+                self.end = True
+            finally:
+                return 1
+        else:
+            return 0
+
+
 
     def takeweight(self, elem:LoadPlan):
         return elem.load
@@ -173,6 +181,7 @@ class Environment(Env):
         self.batch.car_list = []
         self.batch.can_be_sent_load_plan = []
         self.batch.load_plan_list = []
+        self.batch.city_load_plan_dict = {}
         self.change_batch_length()
         return self.state
 
@@ -188,8 +197,29 @@ class Environment(Env):
         done = False
         last_state = self.state
         if action not in self.action_space:
-            self.batch_forward(self.get_batch_car_city_list())
-            return self.state, reward, done
+            res = self.batch_forward(self.get_batch_car_city_list())
+            if res == 1:
+                return self.state, reward, done
+            else:
+                self.matcher.change_batch(self.batch)
+                print('开始匹配。。。')
+                s_t = datetime.now()
+                reward, match_list = self.matcher.km()
+                self.car_cut_list.append(len(self.batch.car_list))
+                unbound_lp_list = self.node_clear(match_list)
+                self.drop_sent_load_plan(unbound_lp_list)
+                e_t = datetime.now()
+                cha = e_t - s_t
+                print('结束匹配并更新,所耗时间：', cha.seconds)
+                self.cut_list.append(self.l)
+                self.change_batch_length()
+                if self.state == last_state:
+                    self.batch.car_list = []
+                    self.change_batch_length()
+                    self.state = (len(self.batch.car_list), len(self.batch.can_be_sent_load_plan), self.l)
+                self.state = (len(self.batch.car_list), len(self.batch.can_be_sent_load_plan), self.l)
+                if self.end:
+                    done = True
         delta = None
         Flag = False
         if self.timestamp == len(self.car_list):
@@ -203,9 +233,29 @@ class Environment(Env):
                                           '%Y%m%d%H%M%S') - datetime.strptime(
                     str(int(self.batch.car_list[0].arrive_time)), '%Y%m%d%H%M%S')
         if action != self.l and self.l != self.lmax and int(delta.seconds / 60) < self.lmax:
-            self.batch_forward(self.get_batch_car_city_list())
-            if self.end:
-                done = True
+            res = self.batch_forward(self.get_batch_car_city_list())
+            if res == 1:
+                return self.state, reward, done
+            else:
+                self.matcher.change_batch(self.batch)
+                print('开始匹配。。。')
+                s_t = datetime.now()
+                reward, match_list = self.matcher.km()
+                self.car_cut_list.append(len(self.batch.car_list))
+                unbound_lp_list = self.node_clear(match_list)
+                self.drop_sent_load_plan(unbound_lp_list)
+                e_t = datetime.now()
+                cha = e_t - s_t
+                print('结束匹配并更新,所耗时间：', cha.seconds)
+                self.cut_list.append(self.l)
+                self.change_batch_length()
+                if self.state == last_state:
+                    self.batch.car_list = []
+                    self.change_batch_length()
+                    self.state = (len(self.batch.car_list), len(self.batch.can_be_sent_load_plan), self.l)
+                self.state = (len(self.batch.car_list), len(self.batch.can_be_sent_load_plan), self.l)
+                if self.end:
+                    done = True
         elif (action != self.l and self.l == self.lmax and int(delta.seconds / 60) >= self.lmax) or (
                 action != self.l and self.l != self.lmax and int(delta.seconds / 60) >= self.lmax):
             self.matcher.change_batch(self.batch)
@@ -261,7 +311,7 @@ class Environment(Env):
         temp_date += timedelta(days=1)
         self.end_date = datetime.strftime(temp_date, '%Y%m%d%H%M%S')
         self.cargo_df_list = self.get_day_cargo_dataframe()
-        self.car_train_data = pd.read_csv('/root/car_date/' + self.start_date + '.csv')
+        self.car_train_data = pd.read_csv(curr_config_class.CAR_DATA_ROOT_DIRECTORY + self.start_date + '.csv')
         self.car_list = []
         records_dict_list = self.car_train_data.to_dict(orient="records")
         for i in records_dict_list:

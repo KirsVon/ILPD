@@ -1,22 +1,37 @@
 # -*- coding: utf-8 -*-
 # Description:
 # Created: liujiaye  2019/07/09
-from app.utils.base_dao import BaseDao
+# from app.utils.base_dao import BaseDao
+import config
+import pandas as pd
 
 import traceback
+from app.main.controller.config_name_management import curr_config_class
 
-
-class ManagementDao(BaseDao):
+class ManagementDao():
     def select_commodity(self):
-        sql = """SELECT
-                    prod_kind prod_name,
-                    prod_kind_p1 commodity
-                FROM
-                   prod_corresponding_commodity """
-        data = self.select_all(sql)
+#         sql = """ SELECT
+# DISTINCT
+#  prod_kind,
+# CASE
+#
+#  WHEN prod_kind_price_out RLIKE '型钢' THEN
+#  '型钢'
+#  WHEN prod_kind_price_out RLIKE '螺纹' THEN
+#  '螺纹' ELSE prod_kind_price_out
+#  END AS prod_kind_price_out
+# FROM
+#  db_sys_t_prod_spections ps
+# WHERE
+#  ps.company_id = 'C000000882'
+#  AND is_use = 'SYBJ10'
+#  AND prod_kind_price_out IS NOT NULL
+# AND prod_kind_price_out != '' """
+#         data = self.select_all(sql)
+        data = pd.read_csv(curr_config_class.PROD_CHANGE)
         commodities = {}
-        for i in data:
-            commodities[i['prod_name']] = i['commodity']
+        for index, row in data.iterrows():
+            commodities[row['prod_kind']] = row['prod_kind_price_out']
         # connection.close()
         return commodities
 

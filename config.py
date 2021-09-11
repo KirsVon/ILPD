@@ -67,7 +67,7 @@ class ExperimentalConfig(Config):
     ODS_MYSQL_PORT = 3306
     ODS_MYSQL_USER = 'apiuser'
     ODS_MYSQL_PASSWD = 'reUa!0610'
-    ODS_MYSQL_DB = 'db_ads'
+    ODS_MYSQL_DB = 'db_ods'
     ODS_MYSQL_CHARSET = 'utf8'
 
     # Redis配置，可选（不使用时可删除）
@@ -84,14 +84,26 @@ class ExperimentalConfig(Config):
     SCHEDULER_API_ENABLED = True
 
 
+    # # 库存快照位置
+    STOCK_DATA_ROOT_DIRECTORY_BY_DAY = "/Users/lalala/Desktop/experiment/data/stock/"
     # 库存快照位置
-    STOCK_DATA_ROOT_DIRECTORY_BY_DAY = "D:/experiment_data/stock/"
-    # 库存快照位置
-    STOCK_DATA_ROOT_DIRECTORY = "e:/test_data/stock/"
+    STOCK_DATA_ROOT_DIRECTORY =  "/Users/lalala/Desktop/experiment/data/stock/"
     # Q表位置
-    Q_TABLE_DIRECTORY = "e:/test_data/20201014000000-1.csv"
+    Q_TABLE_DIRECTORY =  " /Users/lalala/Desktop/experiment/data/20201009000000.csv"
     # 车辆数据位置
-    CAR_DATA_ROOT_DIRECTORY = "e:/test_data/car_date/"
+    CAR_DATA_ROOT_DIRECTORY = "/Users/lalala/Desktop/experiment/data/car_date/"
+    # 品名转换文件
+    PROD_CHANGE = "/Users/lalala/Desktop/experiment/data/prod_change.csv"
+# 库存快照位置
+#     STOCK_DATA_ROOT_DIRECTORY_BY_DAY = "/./data/FC/stock/"
+#     # 库存快照位置
+#     STOCK_DATA_ROOT_DIRECTORY =  "/./data/FC/stock/"
+#     # Q表位置
+#     Q_TABLE_DIRECTORY =  "/./data/FC/experiment/0908/20201009000000.csv"
+#     # 车辆数据位置
+#     CAR_DATA_ROOT_DIRECTORY = "/./data/FC/car_date/"
+#     # 品名转换文件
+#     PROD_CHANGE = "/./data/FC/prod_change.csv"
 
 
 class LocalConfig(Config):

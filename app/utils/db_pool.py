@@ -19,9 +19,9 @@ if hasattr(active_config, 'ODS_MYSQL_HOST'):
     db_pool_ods = PooledDB(
         pymysql,
         2,
-        host=active_config.LOCAL_MYSQL_HOST,
-        port=active_config.LOCAL_MYSQL_PORT,
-        user=active_config.LOCAL_MYSQL_USER,
-        passwd=active_config.LOCAL_MYSQL_PASSWD,
-        db=active_config.LOCAL_MYSQL_DB,
-        charset=active_config.LOCAL_MYSQL_CHARSET)
+        host=active_config.ODS_MYSQL_HOST,
+        port=active_config.ODS_MYSQL_PORT,
+        user=active_config.ODS_MYSQL_USER,
+        passwd=active_config.ODS_MYSQL_PASSWD,
+        db=active_config.ODS_MYSQL_DB,
+        charset=active_config.ODS_MYSQL_CHARSET)

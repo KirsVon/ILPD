@@ -24,7 +24,7 @@ min_length = 1
 max_length = 10
 car_file_path = ''
 test_car_file_path = ''
-env = Environment(1,10,curr_config_class.CAR_DATA_ROOT_DIRECTORY + '20200924000000.csv', '20200924000000', '20200925000000', '20201014000000')
+env = Environment(1,10,curr_config_class.CAR_DATA_ROOT_DIRECTORY + '20201009000000.csv', '20201009000000', '20201010000000', '20201014000000')
 
 
 class JC_QL:
@@ -61,6 +61,7 @@ class JC_QL:
                 if lp == lt and lt != 0:  # 当切割长度 = 批的长度 进行匹配并更新Q表
                     last_state = state
                     state, rt, done = env.step(lp)  # 做动作后更新
+                    self.time_window_length_check(env, state)
                     reward = rt
                     self.agent.update_q_table((last_state[0], last_state[1], last_state[2]), lp, reward, state)
                     choice = 1
@@ -68,6 +69,7 @@ class JC_QL:
                 elif lp != lt and lt >= lmax:  # 当时间窗口到达最大窗口长度时，强制匹配
                     last_state = state
                     state, rt, done = env.step(lp)  # 做动作后更新
+                    self.time_window_length_check(env, state)
                     reward = rt
                     self.agent.update_q_table((last_state[0], last_state[1], last_state[2]), lt, reward, state)
                     choice = 2
@@ -75,6 +77,7 @@ class JC_QL:
                 else:  # 当切割长度 != 批的长度，向前进一
                     last_state = state
                     state, rt, done = env.step(lp)
+                    self.time_window_length_check(env, state)
                     if done:
                         break
                     self.agent.update_q_table((last_state[0], last_state[1], last_state[2]), lp, rt, state)
@@ -87,8 +90,14 @@ class JC_QL:
                 print(t)
             t = 0
             env.reset()  # 环境重置
+            cargo_management.outbound = {}
         if env.start_date < env.train_end_date:
             env.change_train_data()
+
+    def time_window_length_check(self,env:Environment,state:tuple):
+        while state[2] not in self.agent.actions:
+            env.batch.car_list.pop(0)
+            env.change_batch_length()
 
     def train_by_day(self, iter_time:int):
         while env.start_date < env.train_end_date:
@@ -100,7 +109,9 @@ class JC_QL:
         temp_df = pd.DataFrame(columns=['cut_length', 'car_cut_length'])
         temp_df['cut_length'] = env.cut_list
         temp_df['car_cut_length'] = env.car_cut_list
-        temp_df.to_csv('/dev/q_table/0323/' + 'cut.csv')
+        temp_df.to_csv('/./data/FC/experiment/' + 'cut.csv')
+
+        # temp_df.to_csv('/Users/lalala/Desktop/' + 'cut.csv')
 
     def test(self, car_list: List[Car]):
         is_spilt = False
@@ -151,3 +162,6 @@ class JC_QL:
                 env.change_batch_length()  # 更新批长度
                 env.state = (len(env.batch.car_list), len(env.batch.load_plan_list), env.l)
         return env.batch.car_list, is_spilt, unbound_lp_list
+
+    def env_load_q_table(self,file_path:str):
+        self.agent.load_Q_table(file_path)
