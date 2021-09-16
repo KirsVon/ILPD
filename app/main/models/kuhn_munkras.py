@@ -42,6 +42,7 @@ class kuhn_munkras:
 
     def change_batch(self, batch: Batch):
         self.batch = batch
+        self.batch.cul_can_be_sent_load_plan_by_car()
         self.lp_len = len(self.batch.can_be_sent_load_plan)
         self.ex_car = [0 for i in range(self.lp_len)]  # KM算法实现需要
         self.ex_huo = [0 for i in range(self.lp_len)]

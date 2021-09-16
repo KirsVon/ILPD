@@ -5,7 +5,7 @@ from app.main.entity.car  import Car
 from app.main.entity.load_plan import LoadPlan
 #from app.main.entity.timestamp_content import Timestamp_Content
 from test.reinforcement_learning.entity.test_batch import test_batch
-
+from typing import List
 
 class Batch:
     """
@@ -33,6 +33,7 @@ class Batch:
 
     def cul_can_be_sent_load_plan_by_car(self):
         car_city_dict = dict()
+        self.get_load_plan_by_city(self.load_plan_list)
         for i in range(len(self.car_list)):
             for j in range(len(self.car_list[i].city_list)):
                 if self.car_list[i].city_list[j] not in car_city_dict.keys():
@@ -52,3 +53,23 @@ class Batch:
                     for j in range(len(self.city_load_plan_dict[i])):
                         can_be_sent_list.append(self.city_load_plan_dict[i][j])
         self.can_be_sent_load_plan = can_be_sent_list
+
+    def sort(self, LoadPlan_list):
+        """ LoadPlan列表排序 """
+        # 按重量排序
+        LoadPlan_list = sorted(LoadPlan_list, key=lambda loadplan: loadplan.load, reverse=True)
+        return LoadPlan_list
+
+    def get_load_plan_by_city(self, lp_list: List[LoadPlan]):
+        city_lp_dict = dict()
+        for i in lp_list:
+            if i.car.city not in city_lp_dict.keys():
+                city_lp_dict[i.car.city] = []
+            else:
+                temp_list = city_lp_dict[i.car.city]
+                temp_list.append(i)
+                city_lp_dict[i.car.city] = temp_list
+        for k in city_lp_dict.keys():
+            city_lp_dict[k] = self.sort(city_lp_dict[k])
+        self.city_load_plan_dict = city_lp_dict
+        return city_lp_dict

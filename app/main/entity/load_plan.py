@@ -25,7 +25,6 @@ class LoadPlan:
             self.is_full = False  # 是否已满
             self.priority = -1.0  # 货物优先级 负数表示未计算过
             self.cargo_list = []  # 货物列表
-
             self.unloading_address_list = set()
             self.stock_list = set()
             self.commodity_list = set()

@@ -94,6 +94,9 @@ class ExperimentalConfig(Config):
     CAR_DATA_ROOT_DIRECTORY = "/Users/lalala/Desktop/experiment/data/car_date/"
     # 品名转换文件
     PROD_CHANGE = "/Users/lalala/Desktop/experiment/data/prod_change.csv"
+    # 司机历史各时间段频次
+    DRIVER_FREQUENCY = "/Users/lalala/Desktop/experiment/data/driver_pri.csv"
+
 # 库存快照位置
 #     STOCK_DATA_ROOT_DIRECTORY_BY_DAY = "/./data/FC/stock/"
 #     # 库存快照位置

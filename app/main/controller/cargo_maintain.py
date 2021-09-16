@@ -46,6 +46,23 @@ class CargoManagement:
             if del_key is not None and del_key in self.outbound:
                 self.outbound.pop(del_key)
 
+    def cargo_all(self):
+        cargo_list = []
+        for key in self.cargo_dic:
+            g = self.cargo_dic[key]
+            if key in self.outbound:
+                if g.c_weight <= self.outbound[key].c_weight:
+                    continue
+                else:
+                    weight = g.c_weight - self.outbound[key].c_weight
+                    g.set_weight(weight)
+            else:
+                cargo_list.append(g)
+        return cargo_list
+
+
+
+
     def cargo_list_filter(self, condition):
         """
         根据条件筛选内存中的货物
@@ -87,4 +104,4 @@ class CountQueue:
         return None
 
 
-cargo_management = CargoManagement('20201010000000')
+cargo_management = CargoManagement('20200924000000')
