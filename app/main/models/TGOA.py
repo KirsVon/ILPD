@@ -143,20 +143,25 @@ class TGOA():
                 k = int(m / 2)
                 count = 0
                 while self.timestamp < len(self.car_list) and  count <= k:
-                    if self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[0:6] and self.car_list[self.timestamp].arrive_time[8:14] <= self.timezone[6:12]:
+                    if (self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[0:6] and self.car_list[self.timestamp].arrive_time[8:14] <= self.timezone[6:12]) or (self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[0:6] and self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[6:12] and self.timezone[6:12] == '000000'):
                         self.screening_out_load_plan_by_car(self.car_list[self.timestamp])
                         LoadPlan_list = self.sort(self.batch.load_plan_list)
                         if len(LoadPlan_list) != 0:
                             self.match_result = self.match_result.append(([{'carmark':self.car_list[self.timestamp].license_plate_number,'weight':LoadPlan_list[0].load,'matching_time': self.car_list[self.timestamp].arrive_time}]))
                             bi = LoadPlan_list.pop(0)
                             self.drop_sent_load_plan([bi])
-                            print('第', self.timestamp, '辆车匹配结果',{'carmark': self.Current_Car.license_plate_number, 'weight': bi.load,'matching_time': self.car_list[self.timestamp].arrive_time})
+                            print('第', self.timestamp, '辆车匹配结果',{'carmark': self.car_list[self.timestamp].license_plate_number, 'weight': bi.load,'matching_time': self.car_list[self.timestamp].arrive_time})
                         else:
                             self.match_result = self.match_result.append([{'carmark': self.car_list[self.timestamp].license_plate_number,'weight':0,'matching_time': self.car_list[self.timestamp].arrive_time}])
                             print('第', self.timestamp, '辆车未能匹配')
-                    count += 1
-                    self.timestamp += 1
-
+                        self.timestamp += 1
+                        count += 1
+                    else:
+                        while ((self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[0:6] and self.car_list[self.timestamp].arrive_time[8:14] <= self.timezone[6:12]) or (self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[0:6] and self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[6:12] and self.timezone[6:12] == '000000')) == False:
+                            self.current_time += self.timedelta
+                            self.get_timezone()
+                        #self.current_time[8:14] = self.timezone[0:6]
+                        self.load_cargo(datetime.strftime(self.current_time, '%Y%m%d%H%M%S'))
                 while self.timestamp < len(self.car_list) and  self.car_list[self.timestamp].arrive_time[8:14] >= self.timezone[0:6] and self.car_list[self.timestamp].arrive_time[8:14] <= self.timezone[6:12]:
                     self.batch.car_list.append(self.car_list[self.timestamp])
                     self.timestamp += 1
@@ -170,14 +175,14 @@ class TGOA():
                         if match_list[i] < len(self.batch.car_list):
                             match_lp_list[match_list[i]] = i
                     for i in range(len(self.batch.car_list)):
-                        if match_lp_list[i] < len(self.batch.can_be_sent_load_plan):
+                        if match_lp_list[i] < len(self.batch.can_be_sent_load_plan) and self.batch.can_be_sent_load_plan[match_lp_list[i]].car.city in self.batch.car_list[i].city_list and self.batch.can_be_sent_load_plan[match_lp_list[i]].load > 29:
                             self.match_result = self.match_result.append([{'carmark': self.batch.car_list[
                                 i].license_plate_number, 'weight': self.batch.can_be_sent_load_plan[
-                                match_lp_list[i]].load, 'matching_time': self.car_list[self.timestamp].arrive_time}])
+                                match_lp_list[i]].load, 'matching_time': self.batch.car_list[i].arrive_time}])
                             print('第', self.timestamp, '辆车匹配结果',
                                   {'carmark': self.batch.car_list[i].license_plate_number,
                                    'weight': self.batch.can_be_sent_load_plan[match_lp_list[i]].load,
-                                   'matching_time': self.car_list[self.timestamp].arrive_time})
+                                   'matching_time': self.batch.car_list[i].arrive_time})
                         else:
                             self.match_result = self.match_result.append([{'carmark': self.batch.car_list[
                                 i].license_plate_number, 'weight': 0, 'matching_time': self.car_list[
@@ -186,7 +191,20 @@ class TGOA():
                     unbound_lp_list = self.node_clear(match_list)
                     self.drop_sent_load_plan(unbound_lp_list)
                 self.current_time += timedelta(minutes=20)
-            self.match_result.to_csv('/Users/lalala/Desktop/experiment/result/TGOA/' + datetime.strftime(self.current_time,'%Y%m%d%H%M%S') + '.csv')
+                if datetime.strftime(self.current_time,'%Y%m%d%H%M%S')[8:14] == '000000':
+                    print('why')
+                    self.match_result.to_csv('C:/Users/93742/Desktop/experiment/result/TGOA/' + datetime.strftime(self.current_time,'%Y%m%d%H%M%S') + '.csv')
+                    self.match_result.drop(self.match_result.index, inplace=True)
+                    cargos = cargo_management.cargo_all()
+                    c_weight = 0
+                    c_num = 0
+                    for i in cargos:
+                        if i.c_weight < 29:
+                            c_weight += i.c_weight
+                            c_num += 1
+                    print("weight", c_weight)
+                    print("num", c_num)
+                    break
 
 
     def node_clear(self, match_list):
@@ -209,8 +227,11 @@ class TGOA():
                 if i not in lp_set:
                     load_plan_list.append(self.batch.can_be_sent_load_plan[i])
                 else:
-                    self.batch.can_be_sent_load_plan[i].car = self.batch.car_list[match_list[i]]
-                    unbound_lp_list.append(self.batch.can_be_sent_load_plan[i])
+                    if self.batch.can_be_sent_load_plan[i].car.city not in self.batch.car_list[match_list[i]].city_list:
+                        pass
+                    else:
+                        self.batch.can_be_sent_load_plan[i].car = self.batch.car_list[match_list[i]]
+                        unbound_lp_list.append(self.batch.can_be_sent_load_plan[i])
         self.batch.car_list = car_list
         self.batch.can_be_sent_load_plan = load_plan_list
         return unbound_lp_list

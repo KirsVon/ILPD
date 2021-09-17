@@ -99,17 +99,37 @@ class Perturbed_Greedy():
                 pertubed_sorted_list = self.pertubed_greedy_sort()
                 if len(pertubed_sorted_list) != 0:
                     best_individual = self.Current_Load_Plan.pop(pertubed_sorted_list[0][0])
-                    self.match_result = self.match_result.append([{'carmark':self.Current_Car.license_plate_number,'weight':best_individual.load,'matching_time': self.Current_Car.arrive_time}])
-                    self.drop_sent_load_plan([best_individual])
-                    print('第', self.timestamp, '辆车匹配结果',  {'carmark':self.Current_Car.license_plate_number,'weight':best_individual.load,'matching_time': self.Current_Car.arrive_time})
+                    if best_individual.load >= 29:
+                        self.match_result = self.match_result.append([{'carmark': self.Current_Car.license_plate_number,
+                                                                       'weight': best_individual.load,
+                                                                       'matching_time': self.Current_Car.arrive_time}])
+                        self.drop_sent_load_plan([best_individual])
+                        print('第', self.timestamp, '辆车匹配结果',
+                              {'carmark': self.Current_Car.license_plate_number, 'weight': best_individual.load,
+                               'matching_time': self.Current_Car.arrive_time})
+                    else:
+                        self.match_result = self.match_result.append(([
+                            {'carmark': self.Current_Car.license_plate_number, 'weight': 0,
+                             'matching_time': self.Current_Car.arrive_time}]))
+                        print('第', self.timestamp, '辆车未能匹配')
                 else:
                     self.match_result = self.match_result.append(([{'carmark':self.Current_Car.license_plate_number,'weight':0,'matching_time': self.Current_Car.arrive_time}]))
                     print('第', self.timestamp, '辆车未能匹配')
                 self.timestamp += 1
             self.match_result.to_csv(
-                '/Users/lalala/Desktop/experiment/result/PG/' + datetime.strftime(self.current_time,
+                'C:/Users/93742/Desktop/experiment/result/PG/' + datetime.strftime(self.current_time,
                                                                                   '%Y%m%d%H%M%S') + '.csv')
             self.match_result.drop(self.match_result.index, inplace=True)
+            cargos = cargo_management.cargo_all()
+            c_weight = 0
+            c_num = 0
+            for i in cargos:
+                if i.c_weight < 29:
+                    c_weight += i.c_weight
+                    c_num += 1
+            print("weight", c_weight)
+            print("num", c_num)
+
 
 
     def drop_sent_load_plan(self, unbound_lp_list: List[LoadPlan]):

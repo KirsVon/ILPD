@@ -10,6 +10,6 @@
 
 from app.main.models.perturbed_greedy import Perturbed_Greedy
 
-PG = Perturbed_Greedy('20201015000000', '20201024000000')
+PG = Perturbed_Greedy('20201023000000', '20201024000000')
 
 PG.pertubed_greedy_matching()

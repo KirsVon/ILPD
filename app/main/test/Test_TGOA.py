@@ -9,5 +9,5 @@
 '''
 from app.main.models.TGOA import TGOA
 
-tgoa =  TGOA('20201016000000','20201017000000')
+tgoa =  TGOA('20201023000000','20201024000000')
 tgoa.TGOA()
